@@ -1,0 +1,31 @@
+name: migrate
+
+# Applies pending migrations whenever a commit on main touches migrations/, or on demand.
+# Needs the DATABASE_URL secret on the "production" environment.
+on:
+  push:
+    branches: [main]
+    paths: ["migrations/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Two runs applying migrations at once would race on the goose version table.
+concurrency:
+  group: migrate
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: make migrate-status
+      - run: make migrate

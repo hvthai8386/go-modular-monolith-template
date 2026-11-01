@@ -30,10 +30,7 @@ func (m *Module) Register(ctx context.Context, deps monolith.Deps) error {
 		return err
 	}
 
-	databaseInfo, err := postgres.NewDatabaseInfoReader(deps.DB)
-	if err != nil {
-		return err
-	}
+	databaseInfo := postgres.NewDatabaseInfoReader(deps.DB)
 	versionService := usecase.NewVersionService(appVersion, databaseInfo)
 
 	handler := grpc.NewVersioningHandler(versionService, deps.Logger)

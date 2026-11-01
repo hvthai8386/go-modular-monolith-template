@@ -3,3 +3,14 @@
 //   sqlc v1.31.1
 
 package sqlcgen
+
+import (
+	"github.com/jackc/pgx/v5/pgtype"
+)
+
+type GooseDbVersion struct {
+	ID        int32
+	VersionID int64
+	IsApplied bool
+	Tstamp    pgtype.Timestamp
+}

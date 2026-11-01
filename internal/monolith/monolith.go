@@ -1,6 +1,6 @@
 // Package monolith hosts every module in one process: one gRPC server, one HTTP gateway in front
 // of it, one database pool. Modules plug into it through Deps. Schema migrations are not run here;
-// see cmd/migrate.
+// see `make migrate`.
 package monolith
 
 import (

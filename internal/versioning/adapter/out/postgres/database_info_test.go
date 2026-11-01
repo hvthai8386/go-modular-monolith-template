@@ -9,7 +9,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
-// Runs only against a real database that `cmd/migrate up` has already been applied to;
+// Runs only against a real database that `make migrate` has already been applied to;
 // set DATABASE_URL to enable it.
 func TestDatabaseInfoReader(t *testing.T) {
 	databaseURL := os.Getenv("DATABASE_URL")
@@ -24,10 +24,7 @@ func TestDatabaseInfoReader(t *testing.T) {
 	}
 	defer pool.Close()
 
-	reader, err := NewDatabaseInfoReader(pool)
-	if err != nil {
-		t.Fatalf("NewDatabaseInfoReader: %v", err)
-	}
+	reader := NewDatabaseInfoReader(pool)
 
 	serverVersion, err := reader.ServerVersion(ctx)
 	if err != nil {
@@ -42,6 +39,6 @@ func TestDatabaseInfoReader(t *testing.T) {
 		t.Fatalf("SchemaVersion: %v", err)
 	}
 	if schemaVersion < 1 {
-		t.Errorf("SchemaVersion = %d, want at least 1; run `go run ./cmd/migrate up` first", schemaVersion)
+		t.Errorf("SchemaVersion = %d, want at least 1; run `make migrate` first", schemaVersion)
 	}
 }

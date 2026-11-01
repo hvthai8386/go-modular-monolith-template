@@ -9,6 +9,18 @@ import (
 	"context"
 )
 
+const schemaVersion = `-- name: SchemaVersion :one
+SELECT COALESCE(MAX(version_id), 0)::BIGINT AS version_id FROM goose_db_version
+`
+
+// goose v3 deletes a row on rollback, so the highest version present is the applied schema version.
+func (q *Queries) SchemaVersion(ctx context.Context) (int64, error) {
+	row := q.db.QueryRow(ctx, schemaVersion)
+	var version_id int64
+	err := row.Scan(&version_id)
+	return version_id, err
+}
+
 const serverVersion = `-- name: ServerVersion :one
 SELECT version()
 `

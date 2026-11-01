@@ -1,7 +1,9 @@
 version: "2"
 sql:
   - engine: "postgresql"
-    schema: "migrations"
+    schema:
+      - "migrations"
+      - "internal/versioning/adapter/out/postgres/schema"
     queries: "internal/versioning/adapter/out/postgres/query"
     gen:
       go:
