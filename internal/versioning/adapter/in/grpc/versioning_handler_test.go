@@ -9,9 +9,9 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	versioningv1 "github.com/your-org/go-hexagon-template/gen/versioning/v1"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/domain"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/port/in/inmock"
+	versioningv1 "github.com/hvthai8386/go-modular-monolith-template/gen/versioning/v1"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/domain"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/port/in/inmock"
 )
 
 func TestVersioningHandler_GetVersion(t *testing.T) {

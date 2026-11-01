@@ -20,7 +20,7 @@ import (
 	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
 
-	"github.com/your-org/go-hexagon-template/internal/config"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/config"
 )
 
 const (

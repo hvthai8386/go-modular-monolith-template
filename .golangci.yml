@@ -15,7 +15,7 @@ linters:
             - "**/core/**"
           allow:
             - $gostd
-            - github.com/your-org/go-hexagon-template/internal/versioning/core
+            - github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core
     sloglint:
       context: all
       key-naming-case: snake

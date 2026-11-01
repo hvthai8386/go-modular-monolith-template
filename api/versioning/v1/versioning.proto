@@ -4,7 +4,7 @@ package versioning.v1;
 
 import "google/api/annotations.proto";
 
-option go_package = "github.com/your-org/go-hexagon-template/gen/versioning/v1;versioningv1";
+option go_package = "github.com/hvthai8386/go-modular-monolith-template/gen/versioning/v1;versioningv1";
 
 service VersioningService {
   rpc GetVersion(GetVersionRequest) returns (GetVersionResponse) {

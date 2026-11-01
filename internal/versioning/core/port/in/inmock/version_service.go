@@ -4,7 +4,7 @@ package inmock
 import (
 	"context"
 
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/domain"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/domain"
 )
 
 type VersionService struct {

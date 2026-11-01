@@ -1,4 +1,4 @@
-module github.com/your-org/go-hexagon-template
+module github.com/hvthai8386/go-modular-monolith-template
 
 go 1.26.3
 

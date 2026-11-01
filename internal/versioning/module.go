@@ -5,12 +5,12 @@ import (
 	"context"
 	"fmt"
 
-	versioningv1 "github.com/your-org/go-hexagon-template/gen/versioning/v1"
-	"github.com/your-org/go-hexagon-template/internal/monolith"
-	"github.com/your-org/go-hexagon-template/internal/versioning/adapter/in/grpc"
-	"github.com/your-org/go-hexagon-template/internal/versioning/adapter/out/postgres"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/domain"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/usecase"
+	versioningv1 "github.com/hvthai8386/go-modular-monolith-template/gen/versioning/v1"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/monolith"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/adapter/in/grpc"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/adapter/out/postgres"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/domain"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/usecase"
 )
 
 type Module struct {

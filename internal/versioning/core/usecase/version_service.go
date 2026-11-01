@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/domain"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/port/in"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/port/out"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/domain"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/port/in"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/port/out"
 )
 
 type VersionService struct {

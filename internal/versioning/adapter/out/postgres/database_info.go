@@ -5,8 +5,8 @@ import (
 
 	"github.com/jackc/pgx/v5/pgxpool"
 
-	"github.com/your-org/go-hexagon-template/internal/versioning/adapter/out/postgres/sqlcgen"
-	"github.com/your-org/go-hexagon-template/internal/versioning/core/port/out"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/adapter/out/postgres/sqlcgen"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/port/out"
 )
 
 type DatabaseInfoReader struct {

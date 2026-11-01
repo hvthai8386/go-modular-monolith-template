@@ -141,7 +141,7 @@ const file_versioning_v1_versioning_proto_rawDesc = "" +
 	"\x0eschema_version\x18\x04 \x01(\x03R\rschemaVersion2\x86\x01\n" +
 	"\x11VersioningService\x12q\n" +
 	"\n" +
-	"GetVersion\x12 .versioning.v1.GetVersionRequest\x1a!.versioning.v1.GetVersionResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/versioning/versionBHZFgithub.com/your-org/go-hexagon-template/gen/versioning/v1;versioningv1b\x06proto3"
+	"GetVersion\x12 .versioning.v1.GetVersionRequest\x1a!.versioning.v1.GetVersionResponse\"\x1e\x82\xd3\xe4\x93\x02\x18\x12\x16/v1/versioning/versionBSZQgithub.com/hvthai8386/go-modular-monolith-template/gen/versioning/v1;versioningv1b\x06proto3"
 
 var (
 	file_versioning_v1_versioning_proto_rawDescOnce sync.Once

@@ -7,10 +7,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/your-org/go-hexagon-template/internal/config"
-	"github.com/your-org/go-hexagon-template/internal/logging"
-	"github.com/your-org/go-hexagon-template/internal/monolith"
-	"github.com/your-org/go-hexagon-template/internal/versioning"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/config"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/logging"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/monolith"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	if err != nil {
 		fatal("failed to load config", err)
 	}
-	logging.Setup(cfg.LogLevel, cfg.Env == "production", "go-hexagon-template")
+	logging.Setup(cfg.LogLevel, cfg.Env == "production", "go-modular-monolith-template")
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
