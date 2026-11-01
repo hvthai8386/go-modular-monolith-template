@@ -1,5 +1,6 @@
 // Package monolith hosts every module in one process: one gRPC server, one HTTP gateway in front
-// of it, one database pool. Modules plug into it through Deps.
+// of it, one database pool. Modules plug into it through Deps. Schema migrations are not run here;
+// see cmd/migrate.
 package monolith
 
 import (
@@ -13,8 +14,6 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/jackc/pgx/v5/pgxpool"
-	"github.com/jackc/pgx/v5/stdlib"
-	"github.com/pressly/goose/v3"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/health"
@@ -22,7 +21,6 @@ import (
 	"google.golang.org/grpc/reflection"
 
 	"github.com/your-org/go-hexagon-template/internal/config"
-	"github.com/your-org/go-hexagon-template/migrations"
 )
 
 const (
@@ -65,18 +63,6 @@ func New(ctx context.Context, cfg config.Config, modules ...Module) (_ *Monolith
 	if err := db.Ping(ctx); err != nil {
 		return nil, fmt.Errorf("ping database: %w", err)
 	}
-
-	// goose works on database/sql, so it gets a *sql.DB view of the pool; closing the view does not
-	// close the pool.
-	migrator, err := goose.NewProvider(goose.DialectPostgres, stdlib.OpenDBFromPool(db), migrations.FS)
-	if err != nil {
-		return nil, fmt.Errorf("create goose provider: %w", err)
-	}
-	applied, err := migrator.Up(ctx)
-	if err != nil {
-		return nil, fmt.Errorf("run migrations: %w", err)
-	}
-	slog.InfoContext(ctx, "migrations applied", "count", len(applied))
 
 	grpcServer := grpc.NewServer(grpc.ChainUnaryInterceptor(recoverUnary, logUnary))
 	grpc_health_v1.RegisterHealthServer(grpcServer, health.NewServer())
