@@ -1,6 +1,6 @@
 SQLC  := go run github.com/sqlc-dev/sqlc/cmd/sqlc@v1.31.1
 # Goose targets are silenced with @ so the DATABASE_URL in the command line never reaches logs.
-GOOSE := go run github.com/pressly/goose/v3/cmd/goose@v3.29.0 -dir migrations postgres "$(DATABASE_URL)"
+GOOSE := go run github.com/pressly/goose/v3/cmd/goose@v3.29.0 -dir db/migrations postgres "$(DATABASE_URL)"
 
 .PHONY: generate build test lint run migrate migrate-status migrate-create
 

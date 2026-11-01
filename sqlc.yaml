@@ -2,11 +2,11 @@ version: "2"
 sql:
   - engine: "postgresql"
     schema:
-      - "migrations"
-      - "internal/versioning/adapter/out/postgres/schema"
-    queries: "internal/versioning/adapter/out/postgres/query"
+      - "db/migrations"
+      - "db/schema"
+    queries: "db/query"
     gen:
       go:
-        package: "sqlcgen"
-        out: "internal/versioning/adapter/out/postgres/sqlcgen"
+        package: "db"
+        out: "internal/db"
         sql_package: "pgx/v5"

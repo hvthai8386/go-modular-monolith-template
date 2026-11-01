@@ -22,7 +22,7 @@ linters:
   exclusions:
     paths:
       - gen/
-      - sqlcgen/
+      - internal/db/
 
 formatters:
   enable:
@@ -30,4 +30,4 @@ formatters:
   exclusions:
     paths:
       - gen/
-      - sqlcgen/
+      - internal/db/

@@ -1,11 +1,11 @@
 name: migrate
 
-# Applies pending migrations whenever a commit on main touches migrations/, or on demand.
+# Applies pending migrations whenever a commit on main touches db/migrations/, or on demand.
 # Needs the DATABASE_URL secret on the "production" environment.
 on:
   push:
     branches: [main]
-    paths: ["migrations/**"]
+    paths: ["db/migrations/**"]
   workflow_dispatch:
 
 permissions:

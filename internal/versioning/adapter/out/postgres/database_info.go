@@ -5,18 +5,18 @@ import (
 
 	"github.com/jackc/pgx/v5/pgxpool"
 
-	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/adapter/out/postgres/sqlcgen"
+	"github.com/hvthai8386/go-modular-monolith-template/internal/db"
 	"github.com/hvthai8386/go-modular-monolith-template/internal/versioning/core/port/out"
 )
 
 type DatabaseInfoReader struct {
-	queries *sqlcgen.Queries
+	queries *db.Queries
 }
 
 var _ out.DatabaseInfoReader = (*DatabaseInfoReader)(nil)
 
 func NewDatabaseInfoReader(pool *pgxpool.Pool) *DatabaseInfoReader {
-	return &DatabaseInfoReader{queries: sqlcgen.New(pool)}
+	return &DatabaseInfoReader{queries: db.New(pool)}
 }
 
 func (r *DatabaseInfoReader) ServerVersion(ctx context.Context) (string, error) {
