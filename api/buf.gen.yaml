@@ -1,0 +1,14 @@
+version: v2
+clean: true
+# Remote plugins pinned to the versions in go.mod, so local and CI output is identical
+# without installing protoc plugins on each machine.
+plugins:
+  - remote: buf.build/protocolbuffers/go:v1.36.12
+    out: ../gen
+    opt: paths=source_relative
+  - remote: buf.build/grpc/go:v1.6.2
+    out: ../gen
+    opt: paths=source_relative
+  - remote: buf.build/grpc-ecosystem/gateway:v2.33.0
+    out: ../gen
+    opt: paths=source_relative

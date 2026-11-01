@@ -1,0 +1,33 @@
+version: "2"
+
+linters:
+  default: standard
+  enable:
+    - depguard
+    - errorlint
+    - sloglint
+  settings:
+    depguard:
+      rules:
+        # The core of every module is pure domain code: standard library and its own core only.
+        core:
+          files:
+            - "**/core/**"
+          allow:
+            - $gostd
+            - github.com/your-org/go-hexagon-template/internal/versioning/core
+    sloglint:
+      context: all
+      key-naming-case: snake
+  exclusions:
+    paths:
+      - gen/
+      - sqlcgen/
+
+formatters:
+  enable:
+    - gofmt
+  exclusions:
+    paths:
+      - gen/
+      - sqlcgen/
